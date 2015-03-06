@@ -1,0 +1,3 @@
+"0", "PostingBodyEmail", " @ yahoo.com"
+"1", "PostingBody", "Near restaurants, shopping centers, and employers"
+"2", "PostingBody", "This is a large & lovely historic property"

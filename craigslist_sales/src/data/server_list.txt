@@ -1,0 +1,11 @@
+Amazon EC2
+ssh -i ./data/yspark.pem ubuntu@174.129.64.96
+
+UMD labtop
+ssh yspark@10.109.175.152
+
+Damon's SD Server
+ssh yspark@169.228.66.98
+
+Damon's internal server from 169.228.66.98
+
