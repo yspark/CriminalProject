@@ -39,7 +39,6 @@ emailList = [
 "NAME":"none",
 "MEDIUM":"phone"
 },
-
 # WashingtonDC 4
 { 
 "EMAIL":"paceykip79@gmail.com",
@@ -76,58 +75,266 @@ emailList = [
 "NAME":"none",
 "MEDIUM":"both"
 },
-
-
-
-
-
-
-]
-
-
-"""
+# WashingtonDC 7
+{
+"EMAIL":"antoniajocelyn76@gmail.com",
+"CRAIGSLIST_ACCOUNT":"antoniajocelyn76@gmail.com",
+"PASSWD":"cybersafe",
+"CITY":"WashingtonDC",
+"ID":"10",
+"PROXY":"planetlab-01.vt.nodes.planet-lab.org:8888",
+"PHONE":"240-618-7518",
+"NAME":"male",
+"MEDIUM":"email"
+},
+# WashingtonDC 8
+{
+"EMAIL":"carleneangelia77@gmail.com",
+"CRAIGSLIST_ACCOUNT":"carleneangelia77@gmail.com",
+"PASSWD":"cybersafe",
+"CITY":"WashingtonDC",
+"ID":"10",
+"PROXY":"pl1.6test.edu.cn:8888",
+"PHONE":"240-618-7522",
+"NAME":"female",
+"MEDIUM":"email"
+},
+# WashingtonDC 9
+{
+"EMAIL":"cassiealethea80@gmail.com",
+"CRAIGSLIST_ACCOUNT":"cassiealethea80@gmail.com",
+"PASSWD":"cybersafe",
+"CITY":"WashingtonDC",
+"ID":"10",
+"PROXY":"planetlab1.cs.du.edu:8888",
+"PHONE":"240-618-7525",
+"NAME":"none",
+"MEDIUM":"email"
+},
 
 
 # LA 1
 {
 "EMAIL":"rogergerard83@gmail.com",
-"PASSWD":"umdscamscam",
+"PASSWD":"cybersafe",
 "CRAIGSLIST_ACCOUNT":"rogergerard83@gmail.com",
 "CITY":"LA",
 "ID":"7",
-"PROXY":"planetlab2.cs.unc.edu:8888",
+"PROXY":"planetlab3.wail.wisc.edu:8888",
+"PHONE":"213-598-3187",
+"NAME":"female",
+"MEDIUM":"phone"
 },
-
 # LA 2
 {
-"EMAIL":"hubertjerold87@gmail.com",
-"PASSWD":"umdscamscam",
-"CRAIGSLIST_ACCOUNT":"hubertjerold87@gmail.com",
-"CITY":"LA",
-"ID":"7",
-"PROXY":"planetlab2.cs.unc.edu:8888",
-},
-
-# LA 3
-{
 "EMAIL":"damianbenson89@gmail.com",
-"PASSWD":"umdscamscam",
+"PASSWD":"cybersafe",
 "CRAIGSLIST_ACCOUNT":"damianbenson89@gmail.com",
 "CITY":"LA",
 "ID":"7",
-"PROXY":"planetlab2.cs.unc.edu:8888",
+"PROXY":":8888",
+"PHONE":"347-541-2655",
+"NAME":"male",
+"MEDIUM":"phone"
 },
-
+# LA 3
+{
+"EMAIL":"sophiascarlet82@gmail.com",
+"PASSWD":"cybersafe",
+"CRAIGSLIST_ACCOUNT":"sophiascarlet82@gmail.com",
+"CITY":"LA",
+"ID":"7",
+"PROXY":":8888",
+"PHONE":"240-618-7526",
+"NAME":"none",
+"MEDIUM":"phone"
+},
 # LA 4
 {
+"EMAIL":"laylasharyn85@gmail.com",
+"PASSWD":"cybersafe",
+"CRAIGSLIST_ACCOUNT":"laylasharyn85@gmail.com",
+"CITY":"LA",
+"ID":"7",
+"PROXY":":8888",
+"PHONE":"312-465-3284",
+"NAME":"female",
+"MEDIUM":"both"
+},
+# LA 5
+{
+"EMAIL":"roddyderek83@gmail.com",
+"PASSWD":"cybersafe",
+"CRAIGSLIST_ACCOUNT":"roddyderek83@gmail.com",
+"CITY":"LA",
+"ID":"7",
+"PROXY":":8888",
+"PHONE":"(786) 570-3183",
+"NAME":"male",
+"MEDIUM":"both"
+},
+# LA 6
+{
 "EMAIL":"lamberttanner91@gmail.com",
-"PASSWD":"umdscamscam",
+"PASSWD":"cybersafe",
 "CRAIGSLIST_ACCOUNT":"lamberttanner91@gmail.com",
 "CITY":"LA",
 "ID":"7",
-"PROXY":"planetlab2.cs.unc.edu:8888",
+"PROXY":":8888",
+"PHONE":"(347) 843-5697",
+"NAME":"none",
+"MEDIUM":"both"
+},
+# LA 7
+{
+"EMAIL":"karinaalexis85@gmail.com",
+"PASSWD":"cybersafe",
+"CRAIGSLIST_ACCOUNT":"karinaalexis85@gmail.com",
+"CITY":"LA",
+"ID":"7",
+"PROXY":":8888",
+"PHONE":"(786)925-8463",
+"NAME":"female",
+"MEDIUM":"email"
+},
+# LA 8
+{
+"EMAIL":"luthersilas84@gmail.com",
+"PASSWD":"cybersafe",
+"CRAIGSLIST_ACCOUNT":"luthersilas84@gmail.com",
+"CITY":"LA",
+"ID":"7",
+"PROXY":":8888",
+"PHONE":"(929)323-9949",
+"NAME":"male",
+"MEDIUM":"email"
+},
+# LA 9
+{
+"EMAIL":"betterose85@gmail.com",
+"PASSWD":"cybersafe",
+"CRAIGSLIST_ACCOUNT":"betterose85@gmail.com",
+"CITY":"LA",
+"ID":"7",
+"PROXY":":8888",
+"PHONE":"(773)943-0364",
+"NAME":"none",
+"MEDIUM":"email"
 },
 
+
+# Chicago 1
+{
+"EMAIL":"osmondjaycob88@gmail.com",
+"PASSWD":"cybersafe",
+"CRAIGSLIST_ACCOUNT":"osmondjaycob88@gmail.com",
+"CITY":"Chicago",
+"ID":"11",
+"PROXY":":8888",
+"PHONE":"(213)284-0206",
+"NAME":"female",
+"MEDIUM":"phone"
+},
+# Chicago 2
+{
+"EMAIL":"stefanicistrone89@gmail.com",
+"PASSWD":"cybersafe",
+"CRAIGSLIST_ACCOUNT":"stefanicistrone89@gmail.com",
+"CITY":"Chicago",
+"ID":"11",
+"PROXY":":8888",
+"PHONE":"(786)925-8972",
+"NAME":"male",
+"MEDIUM":"phone"
+},
+# Chicago 3
+{
+"EMAIL":"linnieroslyn89@gmail.com",
+"PASSWD":"cybersafe",
+"CRAIGSLIST_ACCOUNT":"linnieroslyn89@gmail.com",
+"CITY":"Chicago",
+"ID":"11",
+"PROXY":":8888",
+"PHONE":"",
+"NAME":"none",
+"MEDIUM":"phone"
+},
+# Chicago 4
+{
+"EMAIL":"koreyaden90@gmail.com",
+"PASSWD":"cybersafe",
+"CRAIGSLIST_ACCOUNT":"koreyaden90@gmail.com",
+"CITY":"Chicago",
+"ID":"11",
+"PROXY":":8888",
+"PHONE":"",
+"NAME":"female",
+"MEDIUM":"both"
+},
+# Chicago 5
+{
+"EMAIL":"kristeenmikki86@gmail.com",
+"PASSWD":"cybersafe",
+"CRAIGSLIST_ACCOUNT":"kristeenmikki86@gmail.com",
+"CITY":"Chicago",
+"ID":"11",
+"PROXY":":8888",
+"PHONE":"",
+"NAME":"male",
+"MEDIUM":"both"
+},
+# Chicago 6
+{
+"EMAIL":"zandracybill90@gmail.com",
+"PASSWD":"cybersafe",
+"CRAIGSLIST_ACCOUNT":"zandracybill90@gmail.com",
+"CITY":"Chicago",
+"ID":"11",
+"PROXY":":8888",
+"PHONE":"",
+"NAME":"none",
+"MEDIUM":"both"
+},
+# Chicago 7
+{
+"EMAIL":"albertburg91@gmail.com",
+"PASSWD":"cybersafe",
+"CRAIGSLIST_ACCOUNT":"albertburg91@gmail.com",
+"CITY":"Chicago",
+"ID":"11",
+"PROXY":":8888",
+"PHONE":"",
+"NAME":"female",
+"MEDIUM":"email"
+},
+# Chicago 8
+{
+"EMAIL":"jodyhaven92@gmail.com",
+"PASSWD":"cybersafe",
+"CRAIGSLIST_ACCOUNT":"jodyhaven92@gmail.com",
+"CITY":"Chicago",
+"ID":"11",
+"PROXY":":8888",
+"PHONE":"",
+"NAME":"male",
+"MEDIUM":"email"
+},
+# Chicago 5
+{
+"EMAIL":"charltonsinclair92@gmail.com",
+"PASSWD":"cybersafe",
+"CRAIGSLIST_ACCOUNT":"charltonsinclair92@gmail.com",
+"CITY":"Chicago",
+"ID":"11",
+"PROXY":":8888",
+"PHONE":"",
+"NAME":"none",
+"MEDIUM":"email"
+},
+]
+
+
+"""
 # LA 5
 {
 "EMAIL":"charltonsinclair92@gmail.com",
@@ -140,66 +347,12 @@ emailList = [
 
 
 
-# Chicago 1
-{ 
-"EMAIL":"laylasharyn85@gmail.com",
-"PASSWD":"umdscamscam",
-"CRAIGSLIST_ACCOUNT":"laylasharyn85@gmail.com",
-"CITY":"Chicago",
-"ID":"11",
-"PROXY":"planetlab2.cs.unc.edu:8888",
-},
-
-# Chicago 2
-{ 
-"EMAIL":"lenorepoppy85@gmail.com",
-"PASSWD":"umdscamscam",
-"CRAIGSLIST_ACCOUNT":"lenorepoppy85@gmail.com",
-"CITY":"Chicago",
-"ID":"11",
-"PROXY":"planetlab2.cs.unc.edu:8888",
-},
-
-# Chicago 3
-{ 
-"EMAIL":"stefanicistrone89@gmail.com",
-"PASSWD":"umdscamscam",
-"CRAIGSLIST_ACCOUNT":"stefanicistrone89@gmail.com",
-"CITY":"Chicago",
-"ID":"11",
-"PROXY":"planetlab2.cs.unc.edu:8888",
-},
-
-# Chicago 4
-{ 
-"EMAIL":"kristeenmikki86@gmail.com",
-"PASSWD":"umdscamscam",
-"CRAIGSLIST_ACCOUNT":"kristeenmikki86@gmail.com",
-"CITY":"Chicago",
-"ID":"11",
-"PROXY":"planetlab2.cs.unc.edu:8888",
-},
-             
-# Chicago 5
-{ 
-"EMAIL":"jodyhaven92@gmail.com",
-"PASSWD":"umdscamscam",
-"CRAIGSLIST_ACCOUNT":"jodyhaven92@gmail.com",
-"CITY":"Chicago",
-"ID":"11",
-"PROXY":"planetlab2.cs.unc.edu:8888",
-},
 
 
-# Seattle 1
-{ 
-"EMAIL":"karinaalexis85@gmail.com",
-"PASSWD":"umdscamscam",
-"CRAIGSLIST_ACCOUNT":"karinaalexis85@gmail.com",
-"CITY":"Seattle",
-"ID":"2",
-"PROXY":"planetlab2.cs.unc.edu:8888",
-},
+
+
+
+
 
 # Seattle 2
 { 
@@ -243,15 +396,7 @@ emailList = [
 
 
 
-# NYC 1
-{ 
-"EMAIL":"roddyderek83@gmail.com",
-"PASSWD":"umdscamscam",
-"CRAIGSLIST_ACCOUNT":"roddyderek83@gmail.com",
-"CITY":"NYC",
-"ID":"3",
-"PROXY":"planetlab2.cs.unc.edu:8888",
-},
+
 
 # NYC 2
 { 
@@ -263,15 +408,6 @@ emailList = [
 "PROXY":"planetlab2.cs.unc.edu:8888",
 },
 
-# NYC 3
-{
-"EMAIL":"osmondjaycob88@gmail.com",
-"PASSWD":"umdscamscam",
-"CRAIGSLIST_ACCOUNT":"osmondjaycob88@gmail.com",
-"CITY":"NYC",
-"ID":"3",
-"PROXY":"planetlab2.cs.unc.edu:8888",
-},
 
 # NYC 4
 {
@@ -296,42 +432,5 @@ emailList = [
 
 
 """
-# WashingtonDC 7
-{
-"EMAIL":"HattieJudith79@gmail.com",
-"CRAIGSLIST_ACCOUNT":"HattieJudith79@gmail.com",
-"PASSWD":"cybersafe",
-"CITY":"WashingtonDC",
-"ID":"10",
-"PROXY":"planetlab-01.vt.nodes.planet-lab.org:8888",
-"PHONE":"none",
-"NAME":"male",
-"MEDIUM":"email"
-},
 
-# WashingtonDC 8
-{
-"EMAIL":"ConnieWilloughby79@gmail.com",
-"CRAIGSLIST_ACCOUNT":"ConnieWilloughby79@gmail.com",
-"PASSWD":"cybersafe",
-"CITY":"WashingtonDC",
-"ID":"10",
-"PROXY":"pl1.6test.edu.cn:8888",
-"PHONE":"none",
-"NAME":"female",
-"MEDIUM":"email"
-},
-
-# WashingtonDC 9
-{
-"EMAIL":"PennyLavonne74@gmail.com",
-"CRAIGSLIST_ACCOUNT":"PennyLavonne74@gmail.com",
-"PASSWD":"cybersafe",
-"CITY":"WashingtonDC",
-"ID":"10",
-"PROXY":"planetlab1.cs.du.edu:8888",
-"PHONE":"none",
-"NAME":"none",
-"MEDIUM":"email"
-},
 """
