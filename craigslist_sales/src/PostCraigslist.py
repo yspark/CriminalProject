@@ -392,6 +392,8 @@ def getRandomAdIndexList(targetCity, mysqlInstance):
 					unavailableEmailIndexList.append(i)
 		adIndexList = list(set(random.sample(range(len(goodsAdsList)), len(goodsAdsList))) - set(unavailableEmailIndexList))
 
+
+	random.shuffle(adIndexList)
 	return adIndexList
 
 #end def
@@ -466,7 +468,7 @@ if __name__ == '__main__':
 
 
 		# Gmail IMAP login
-		emailHandler = EmailHandler.EmailHandler(email_dic=emailList[emailIndex])
+		emailHandler = EmailHandler.EmailHandler(email_dic=emailList[emailIndex], mysql = mysqlInstance)
 		if not emailHandler.login(ImapOnly=True):
 			sys.exit()
 

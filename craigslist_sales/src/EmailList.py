@@ -58,7 +58,7 @@ emailList = [
 "PASSWD":"cybersafe",
 "CITY":"WashingtonDC",
 "ID":"10",
-"PROXY":"planetlab-2.sjtu.edu.cn:8888",
+"PROXY":"pl2.cs.unm.edu:8888",
 "PHONE":"240-618-7511",
 "NAME":"female",
 "MEDIUM":"both"

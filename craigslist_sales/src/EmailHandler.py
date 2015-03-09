@@ -29,13 +29,17 @@ import LocalDef
 
 
 class EmailHandler:
-	def __init__(self, email_dic=None, TEST_FLAG=False):
+	def __init__(self, email_dic=None, mysql=None, TEST_FLAG=False):
 		self.smtpServer = smtplib.SMTP('smtp.gmail.com', 587)
 		self.imapServer = imaplib.IMAP4_SSL("imap.gmail.com")
 		self.webServer = 'http://54.152.213.228'
 
-		self.mysql = ScamMysql.ScamMysql(TEST=TEST_FLAG)
-		self.mysql.connect()
+		if mysql:
+			self.mysql = mysql
+		else:
+			self.mysql = ScamMysql.ScamMysql(TEST=TEST_FLAG)
+			self.mysql.connect()
+
 		self.pi = PersonalInformation.PersonalInformation()
 		self.TEST_FLAG = TEST_FLAG
 		self.email_dic = email_dic
