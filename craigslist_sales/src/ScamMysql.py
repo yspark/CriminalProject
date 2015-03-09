@@ -22,7 +22,7 @@ class ScamMysql:
       
       with self.mysql:
           self.cursor = self.mysql.cursor()                        
-          
+
           # Table for Craigslist ads
           try:
             self.cursor.execute("CREATE TABLE IF NOT EXISTS \
@@ -374,12 +374,8 @@ class ScamMysql:
   #######################################################################
   #  FlaggedAdChecker
   #######################################################################
-  def getAdURL(self, option=False):
-    if option==False:
-      query = ("SELECT URL, City, ID, Subject, Category FROM CraigslistAds WHERE URL IS NOT NULL AND Status IS NULL")
-    else:
-      query = ("SELECT URL, City, ID, Subject, Category FROM CraigslistAds2 WHERE URL IS NOT NULL AND Status IS NULL")
-    
+  def getAdURL(self):
+    query = ("SELECT URL, City, ID, Subject, Category FROM CraigslistAds WHERE URL IS NOT NULL AND Status='Verified'")
     self.cursor.execute(query)
     resultRows = self.cursor.fetchall()      
     
