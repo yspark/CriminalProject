@@ -132,7 +132,7 @@ emailList = [
 "CRAIGSLIST_ACCOUNT":"damianbenson89@gmail.com",
 "CITY":"LA",
 "ID":"7",
-"PROXY":":8888",
+"PROXY":"planetlab2.utdallas.edu:8888",
 "PHONE":"347-541-2655",
 "NAME":"male",
 "MEDIUM":"phone"
@@ -144,7 +144,7 @@ emailList = [
 "CRAIGSLIST_ACCOUNT":"sophiascarlet82@gmail.com",
 "CITY":"LA",
 "ID":"7",
-"PROXY":":8888",
+"PROXY":"pl2.6test.edu.cn:8888",
 "PHONE":"240-618-7526",
 "NAME":"none",
 "MEDIUM":"phone"
@@ -156,7 +156,7 @@ emailList = [
 "CRAIGSLIST_ACCOUNT":"laylasharyn85@gmail.com",
 "CITY":"LA",
 "ID":"7",
-"PROXY":":8888",
+"PROXY":"planetlab1.utdallas.edu:8888",
 "PHONE":"312-465-3284",
 "NAME":"female",
 "MEDIUM":"both"
@@ -168,7 +168,7 @@ emailList = [
 "CRAIGSLIST_ACCOUNT":"roddyderek83@gmail.com",
 "CITY":"LA",
 "ID":"7",
-"PROXY":":8888",
+"PROXY":"pli1-pa-4.hpl.hp.com:8888",
 "PHONE":"(786) 570-3183",
 "NAME":"male",
 "MEDIUM":"both"
@@ -180,7 +180,7 @@ emailList = [
 "CRAIGSLIST_ACCOUNT":"lamberttanner91@gmail.com",
 "CITY":"LA",
 "ID":"7",
-"PROXY":":8888",
+"PROXY":"planetlab3.arizona-gigapop.net:8888",
 "PHONE":"(347) 843-5697",
 "NAME":"none",
 "MEDIUM":"both"
@@ -192,7 +192,7 @@ emailList = [
 "CRAIGSLIST_ACCOUNT":"karinaalexis85@gmail.com",
 "CITY":"LA",
 "ID":"7",
-"PROXY":":8888",
+"PROXY":"planetlab1.cs.otago.ac.nz:8888",
 "PHONE":"(786)925-8463",
 "NAME":"female",
 "MEDIUM":"email"
@@ -204,7 +204,7 @@ emailList = [
 "CRAIGSLIST_ACCOUNT":"luthersilas84@gmail.com",
 "CITY":"LA",
 "ID":"7",
-"PROXY":":8888",
+"PROXY":"planetlab1.cs.okstate.edu:8888",
 "PHONE":"(929)323-9949",
 "NAME":"male",
 "MEDIUM":"email"
@@ -216,7 +216,7 @@ emailList = [
 "CRAIGSLIST_ACCOUNT":"betterose85@gmail.com",
 "CITY":"LA",
 "ID":"7",
-"PROXY":":8888",
+"PROXY":"planetlab2.arizona-gigapop.net:8888",
 "PHONE":"(773)943-0364",
 "NAME":"none",
 "MEDIUM":"email"

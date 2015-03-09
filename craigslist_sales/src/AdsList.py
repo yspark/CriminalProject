@@ -82,6 +82,43 @@ Asking for $820.\n",
 "PICTURE":"iphone6plus.jpg"
 },
 
+# Samsung Galaxy S4 I545 16GB 4G LTE Verizon CDMA Smartphone - Blue
+{
+"CATEGORY":"cellphone",
+"TITLE":"Samsung Galaxy S4 I545 16GB 4G LTE Verizon CDMA Smartphone - Blue",
+"CONTENTS":"1.2 years old used phone for sale. \n\
+Small scratches but used only in a case.\n\
+The price is $355, firm.\n",
+"PRICE":"355",
+"PICTURE":"galaxy_s4_blue.jpg"
+},
+
+# HTC 8X Unlocked Smartphone C620E, 16 GB, Blue
+{
+"CATEGORY":"cellphone",
+"TITLE":"HTC 8X Unlocked Smartphone C620E, 16 GB, Blue",
+"CONTENTS":"GSM 850/900/1800/1900; HSDPA 850/900/1900/2100. \n\
+S-LCD2 capacitive touchscreen, 4.3-Inch. \n\
+8 MP Primary Camera, 3264 x 2448 pixels, autofocus, LED flash; 2.1MP Secondary Camera; Video: 1080p@30fps, continuous autofocus, video light\n\n\
+I bought this phone about 2 years ago. \n\
+Small scratches but used only in a case.\n\
+The price is $670, firm.\n",
+"PRICE":"670",
+"PICTURE":"htc8x.jpg"
+},
+
+# Samsung Galaxy Note 4 N910H 32GB Unlocked GSM Octa-Core Smartphone - Black
+{
+"CATEGORY":"cellphone",
+"TITLE":"HTC 8X Unlocked Smartphone C620E, 16 GB, Blue",
+"CONTENTS":"2G: GSM 850 / 900 / 1900 / 1900, 3G: HSDPA 850 / 900 / 1900 / 2100 (not LTE)\n\
+5.7\" Super AMOLED Capacitive Multi-Touchscreen w/ Protective Corning Gorilla Glass 3\n\
+Android v4.4.4 (KitKat), Octa-Core Processor (1.9GHz Quad Core + 1.3GHz Quad Core), Chipset: Qualcomm Snapdragon 85, Adreno 420 Graphics\n\
+I bought this phone about 7 months ago. It has almost no scratch.\n\
+The price is $670, firm.\n",
+"PRICE":"670",
+"PICTURE":"note4.jpg"
+},
 
 
 # Sony WXGT90BT Bluetooth/App Remote Car Stereo Receiver with Pandora (Black)
@@ -99,6 +136,8 @@ Asking for $170.\n\n",
 "PRICE":"170",
 "PICTURE":"91YNADPCgYL._SL1500_.jpg"
 },
+
+
 
 # Falcon Zero by Incredisonic F-360 HD, Rear View Mirror Car DashCam, DVR Accident Video Recorder, Dual-Camera 1080p HD, ~ FREE High Speed Class 10 SD Card Included ~
 {
@@ -128,6 +167,79 @@ Asking for $150 or obo.\n\n",
 "PICTURE":"71hJgOPHoFL._SL1000_.jpg"
 },
 
+# Motorola T325 Bluetooth Portable Car Speaker (Black, Retail Packaging)
+{
+"CATEGORY":"autoparts",
+"TITLE":"Motorola T325 Bluetooth Portable Car Speaker",
+"CONTENTS":"Palm-sized Bluetooth handsfree speaker for using in the car.\n\
+Turns on automatically when you enter the car, and turns off when you exit the car.\n\
+Automatically uploads your favorite contacts for one touch access.\n\
+One touch access to information such as Weather, Traffic, News with Bing 411.\n\
+Voice Caller ID speaks callers name. Includes a car charger.\n\
+Used for 5 months only.\n\
+Asking for $130, firm.\n\n",
+"PRICE":"130",
+"PICTURE":"413yE9+grhL.jpg"
+},
+
+# Pioneer AVIC-F700BT In-Dash Navigation Audio Receiver with CD Playback and Advanced Voice Controls
+{
+"CATEGORY":"autoparts",
+"TITLE":"Pioneer AVIC-F700BT In-Dash Navigation Audio Receiver",
+"CONTENTS":"In-Dash Navigation AV Receiver with CD Player and Built-In Bluetooth.\n\
+Use your voice to make calls and control your iPod.\n\
+USB Direct Control for portable media.\n\
+Built-In SD Card Slot.\n\
+Approximately 12 million pre-programmed POIs make it easy to find gas stations, restaurants, ATMs, coffee and more.\n\
+Bought this 11 months ago.\n\
+$480, firm.\n\n",
+"PRICE":"480",
+"PICTURE":"51Vrn-UvKlL.jpg"
+},
+
+# Plantronics Voyager Legend CS Bluetooth Headset for Mobile Phones
+{
+"CATEGORY":"autoparts",
+"TITLE":"Plantronics Voyager Legend CS Bluetooth Headset for Mobile Phones",
+"CONTENTS":"Multi-device connectivity lets you manage desk phone and mobile/tablet phone calls from a single headset\n\
+Roam up to 33 feet from desktop charging base or mobile device\n\
+Precision tuned triple-mic with enhanced DSP for superior noise cancellation\n\
+Smart sensor technology for a seamless and intuitive user experience\n\
+Automatically answers calls simply by placing on your ear\n\
+Used this for 2 years. In a great condition.\n\
+$200, firm.\n\n",
+"PRICE":"200",
+"PICTURE":"61gl2VhKt4L._SL1500_.jpg"
+},
+
+# Planet Audio PNV9680 In-Dash Single-Din 6.2-inch Touchscreen DVD/CD/SD/MP4/MP3 Player Receiver
+{
+"CATEGORY":"autoparts",
+"TITLE":"Planet Audio PNV9680 In-Dash Single-Din 6.2-inch Touchscreen DVD/CD/SD/MP4/MP3 Player Receiver",
+"CONTENTS":"Bluetooth Audio Streaming\n\
+Compatible with Audio Output of iPod/iPhone, Smartphones and MP3 Players\n\
+Built-In Navigation with map coverage of all 50 states, Canada, and Puerto Rico plus Pre-Loaded points of interest\n\
+Used for 1.5 years. In a great condition.\n\
+$260, firm.\n\n",
+"PRICE":"260",
+"PICTURE":"71LCff-BeKL._SL1500_.jpg"
+},
+
+# Pyle PLDN74BT Headunit Receiver 7-Inch Stereo Radio
+{
+"CATEGORY":"autoparts",
+"TITLE":"Pyle PLDN74BT Headunit Receiver 7-Inch Stereo Radio",
+"CONTENTS":"Built-in Bluetooth for Wireless Music Streaming - Built-in Microphone for Hands-Free Calling\n\
+Compatible with All of Your Favorite Bluetooth Devices (Smartphones, Tablets, MP3 Players, etc.)\n\
+Hi-Resolution 7-inch HD Digital Display - Touch Screen Control Operation - SD Memory Card Reader\n\
+Motorized Fold-Down Screen - Rear Aux (RCA) Input/output Connectors - Double DIN - CD/DVD Player\n\
+User-Friendly Touch Control Interface - Remote Control - Audio/Video Input & Output - AM/FM Radio\n\
+Used only for 1 year. The condition is really great.\n\
+The price is $380.\n\n",
+"PRICE":"380",
+"PICTURE":"61wPtoOph0L._SL1000_.jpg"
+},
+
 ]
 
 
@@ -141,3 +253,9 @@ categoryDic = {
 }
 
 
+
+
+
+
+
+print len(goodsAdsList)

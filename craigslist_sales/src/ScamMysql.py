@@ -58,16 +58,10 @@ class ScamMysql:
                           ScammerIP VARCHAR(20), \
                           Type VARCHAR(20), \
                           Subtype VARCHAR(20), \
-                          Category VARCHAR(16), \
-                          City VARCHAR(30), \
-                          Subject VARCHAR(120), \
-                          Price INT, \
                           TimeStamp DATETIME, \
                           Shipping TEXT, \
                           Payload TEXT, \
                           WholePayload TEXT, \
-                          AdID INT , \
-                          AdPostingTime DATETIME, \
                           PRIMARY KEY (ID), \
                           MessageID VARCHAR(100), \
                           ThreadID VARCHAR(100),  \
@@ -121,11 +115,6 @@ class ScamMysql:
   #enddef
                           
   def insertReceivedConversation(self, emailDic):
-      AdID, AdPostingTime, AdCity = self.getCraigslistAd(emailDic)
-      if AdID == -1:
-        return 
-      
-  
       query = ("INSERT INTO Emails"
                "(OurEmail,"
                "ScammerEmail,"
@@ -135,22 +124,15 @@ class ScamMysql:
                "ScammerIP,"
                "Type,"
                "Subtype,"
-               "Category," 
-               "City,"
-               "Subject,"
-               "Price, " 
-               "TimeStamp," 
+               "TimeStamp,"
                "Payload,"
                "WholePayload, "
-               "AdID,"
-               "AdPostingTime,"
-               "MessageID, " 
+               "MessageID, "
                "ThreadID) "                 
                "VALUES"
-               "(%s, %s, %s, %s, %s, " 
-               "%s, %s, %s, %s, %s, "
-               "%s, %s, %s, %s, %s, "
-               "%s, %s, %s, %s)" )
+               "(%s, %s, %s, %s, %s, "
+               "%s, %s, %s, %s, %s,"
+               "%s, %s, %s)" )
                
       parameter = (emailDic['ReceiverEmail'],\
                    emailDic['SenderEmail'],\
@@ -160,15 +142,9 @@ class ScamMysql:
                    emailDic['SenderIP'],\
                    emailDic['Type'],\
                    'received',\
-                   emailDic['AdCategory'], \
-                   AdCity,\
-                   emailDic['Subject'],\
-                   int(emailDic['AdPrice']),\
                    emailDic['Date'],\
                    emailDic['CorePayload'],\
                    emailDic['Payload'], \
-                   AdID,\
-                   AdPostingTime,\
                    emailDic['MessageID'], \
                    emailDic['ThreadID'])        
       
@@ -178,10 +154,10 @@ class ScamMysql:
   
   
   def insertSentConversation(self, receivedEmailDic, sentEmailDic, sentPayload):
-      AdID, AdPostingTime, AdCity = self.getCraigslistAd(receivedEmailDic)
+      #AdID, AdPostingTime, AdCity = self.getCraigslistAd(receivedEmailDic)
               
       query = ("INSERT INTO Emails"
-               "(OurEmail,"         #1
+               "(OurEmail,"
                "ScammerEmail,"
                "ScammerReplyTo," 
                "RealScammerEmail,"
@@ -189,21 +165,14 @@ class ScamMysql:
                "ScammerIP,"
                "Type,"
                "Subtype,"         
-               "Category,"          
-               "City,"
-               "Subject,"
-               "Price, " 
-               "TimeStamp,"         #
+               "TimeStamp,"
                "Payload,"
-               "AdID,"
-               "AdPostingTime," 
-               "MessageID," 
-               "ThreadID) "         #15     
-               "VALUES"
+               "MessageID,"
+               "ThreadID) "
+               "VALUES "
                "(%s, %s, %s, %s, %s,"
                "%s, %s, %s, %s, %s,"
-               "%s, %s, %s, %s, %s,"               
-               "%s, %s, %s)" )
+               "%s, %s)" )
                
                
       parameter = (receivedEmailDic['ReceiverEmail'],\
@@ -214,20 +183,14 @@ class ScamMysql:
                    receivedEmailDic['SenderIP'],\
                    receivedEmailDic['Type'], \
                    receivedEmailDic['Subtype'], \
-                   receivedEmailDic['AdCategory'], \
-                   AdCity,\
-                   sentEmailDic['Subject'],\
-                   int(receivedEmailDic['AdPrice']), \
                    datetime.datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S'),\
                    sentPayload, \
-                   AdID,\
-                   AdPostingTime,\
                    sentEmailDic['Message-ID'], \
                    receivedEmailDic['ThreadID'])        
       
   
-      #print query
-      #print parameter
+      print query
+      print parameter
       
       if not self.TEST:
         self.cursor.execute(query, parameter)
@@ -284,8 +247,7 @@ class ScamMysql:
              "RealScammerEmail,"
              "ScammerIP,"
              "Type,"
-             "Subject,"
-             "TimeStamp," 
+             "TimeStamp,"
              "Payload,"
              "WholePayload, "
              "MessageID, " 
@@ -293,7 +255,7 @@ class ScamMysql:
              "VALUES"
              "(%s, %s, %s, %s, %s, " 
              "%s, %s, %s, %s, %s, "
-             "%s, %s)")
+             "%s)")
              
     parameter = (emailDic['ReceiverEmail'],\
                  emailDic['SenderEmail'],\
@@ -301,7 +263,6 @@ class ScamMysql:
                  emailDic['RealSenderEmail'],\
                  emailDic['SenderIP'],\
                  emailDic['Type'],\
-                 emailDic['Subject'],\
                  emailDic['Date'],\
                  emailDic['CorePayload'],\
                  emailDic['Payload'], \
@@ -314,8 +275,8 @@ class ScamMysql:
     if not self.TEST:
       self.cursor.execute(query, parameter)
       self.mysql.commit()    
-              
-                     
+
+  '''
   def getCraigslistAd(self, emailDic):
       
       query = ("SELECT ID, PostingTime, City FROM CraigslistAds "
@@ -331,7 +292,7 @@ class ScamMysql:
         return int(result[0][0]), result[0][1], result[0][2]
       else:
         return -1, '0000-00-00 00:00:00', ''
-
+	'''
 
   def getThreadID(self, emailDic, email):
     query = ("SELECT ThreadID FROM Emails "
@@ -392,6 +353,23 @@ class ScamMysql:
         
     return availableHourList
   #def
+
+  def getRecentAds(self, targetCity):
+    query = ("SELECT Subject FROM CraigslistAds "
+             "WHERE PostingTime > (UTC_TIMESTAMP() - INTERVAL 56 HOUR) AND City = %s")
+    parameter = [targetCity]
+    self.cursor.execute(query, parameter)
+    result = self.cursor.fetchall()
+
+    recentlyUsedSubject = list(set([row[0] for row in result]))
+
+    if len(recentlyUsedSubject)>0:
+      return recentlyUsedSubject
+    else:
+      return None
+
+
+
     
   #######################################################################
   #  FlaggedAdChecker
