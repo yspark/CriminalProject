@@ -608,8 +608,8 @@ I am asking for $100 firm. Please contact me for more information" ,
 
 categoryDic = {
 "cellphone":"153", 
-"electronics":"96", 
-"car":"145", 
+#"electronics":"96", 
+#"car":"145", 
 "computer":"7", 
 "jewelry":"120",
 "autoparts":"122",

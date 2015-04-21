@@ -356,10 +356,9 @@ class Craigslist:
             if flagOptional == False:
                 traceback.print_exc(file=sys.stdout)
                 sys.exit()
-            else:
-                checkCraigslistAccountAvailability
-                inputElement.send_keys(inputText)
-            # end def clickRadioButtonByValue()
+        else:
+            inputElement.send_keys(inputText)
+    # end def clickRadioButtonByValue()
 
 
 # end class Craigslist
@@ -397,6 +396,7 @@ def getRandomEmailIndexList(targetCity, mysqlInstance):
 
 
 def getRandomAdIndexList(targetCity, mysqlInstance):
+    category_list = categoryDic.keys()
     adIndexList = random.sample(range(len(goodsAdsList)), len(goodsAdsList))
 
     unavailableEmailIndexList = []
@@ -406,17 +406,25 @@ def getRandomAdIndexList(targetCity, mysqlInstance):
             for subject in unavailableAdTitleList:
                 if goodsAdsList[i]['TITLE'] in subject:
                     unavailableEmailIndexList.append(i)
+                    
+                    #if goodsAdsList[i]['CATEGORY'] in category_list:
+                    #    category_list.remove(goodsAdsList[i]['CATEGORY'])
+                    #    #print '\tRemove', goodsAdsList[i]['CATEGORY']
         adIndexList = list(set(random.sample(range(len(goodsAdsList)), len(goodsAdsList))) - set(unavailableEmailIndexList))
-
+    #endif
+    
     random.shuffle(adIndexList)
 
-    category_list = ['cellphone', 'computer', 'autopart', 'jewelry']
+    #print '###########', category_list
+
     targetAdIndexList = []
     for index in adIndexList:
         if goodsAdsList[index]['CATEGORY'] in category_list:
             targetAdIndexList.append(index)
             category_list.remove(goodsAdsList[index]['CATEGORY'])
             #print goodsAdsList[index]
+        if len(category_list) == 0: break
+    #endfor
 
     return targetAdIndexList
 #end def
@@ -449,6 +457,9 @@ if __name__ == '__main__':
     #################################
     cities = ['WashingtonDC', 'LA', 'Chicago']
     targetCity = cities[random.randint(0, len(cities)-1)]
+    ####################################
+    targetCity = 'LA'
+    ####################################
     print 'Randomly selected city:', targetCity
 
     # mysql
@@ -467,11 +478,13 @@ if __name__ == '__main__':
     emailIndex = emailIndexList[0]
 
     ####################################
-    emailIndex = 9
-
+    targetCity = 'LA'
+    emailIndex = 10
+    ####################################
 
     # build adIndexList
     adIndexList = getRandomAdIndexList(targetCity, mysqlInstance)
+    print 'Available number of ad categories: ', len(adIndexList)
 
     # Gmail IMAP login
     emailHandler = EmailHandler.EmailHandler(email_dic=emailList[emailIndex], mysql = mysqlInstance)
@@ -507,7 +520,7 @@ if __name__ == '__main__':
         craigslist.done()
 
         # Wait random time
-        randTime = random.randint(180, 900)
+        randTime = random.randint(30, 90)
         print '\twaiting %d seconds...' % randTime
         time.sleep(randTime)
         #end

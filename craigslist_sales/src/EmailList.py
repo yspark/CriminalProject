@@ -133,7 +133,7 @@ emailList = [
 "CITY":"LA",
 "ID":"7",
 "PROXY":"planetlab2.utdallas.edu:8888",
-"PHONE":"347-541-2655",
+"PHONE":"301-433-3157",
 "NAME":"male",
 "MEDIUM":"phone"
 },
@@ -157,7 +157,7 @@ emailList = [
 "CITY":"LA",
 "ID":"7",
 "PROXY":"planetlab1.utdallas.edu:8888",
-"PHONE":"312-465-3284",
+"PHONE":"872-305-1810",
 "NAME":"female",
 "MEDIUM":"both"
 },
@@ -169,7 +169,7 @@ emailList = [
 "CITY":"LA",
 "ID":"7",
 "PROXY":"pli1-pa-4.hpl.hp.com:8888",
-"PHONE":"(786) 570-3183",
+"PHONE":"309-750-8910",
 "NAME":"male",
 "MEDIUM":"both"
 },
@@ -181,7 +181,7 @@ emailList = [
 "CITY":"LA",
 "ID":"7",
 "PROXY":"planetlab3.arizona-gigapop.net:8888",
-"PHONE":"(347) 843-5697",
+"PHONE":"(773)943-0364",
 "NAME":"none",
 "MEDIUM":"both"
 },
@@ -217,7 +217,7 @@ emailList = [
 "CITY":"LA",
 "ID":"7",
 "PROXY":"planetlab2.arizona-gigapop.net:8888",
-"PHONE":"(773)943-0364",
+"PHONE":"301-503-4917",
 "NAME":"none",
 "MEDIUM":"email"
 },
