@@ -466,6 +466,10 @@ if __name__ == '__main__':
     #endif
     emailIndex = emailIndexList[0]
 
+    ####################################
+    emailIndex = 9
+
+
     # build adIndexList
     adIndexList = getRandomAdIndexList(targetCity, mysqlInstance)
 
@@ -474,15 +478,12 @@ if __name__ == '__main__':
     if not emailHandler.login(ImapOnly=True):
         sys.exit()
 
-
     for adIndex in adIndexList:
         print '*********************************************'
         print '%d, EmailAccount: %s, CraigslistAccount:%s' \
                 % (emailIndex, emailList[emailIndex]['EMAIL'], emailList[emailIndex]['CRAIGSLIST_ACCOUNT'])
         print '    Ad %d, %s, %s' \
                 % (adIndex, goodsAdsList[adIndex]['TITLE'], goodsAdsList[adIndex]['CATEGORY'])
-
-        continue
 
         craigslist = Craigslist(goodsAdsList[adIndex], emailList[emailIndex], emailHandler)
         # Post Craigslist AD

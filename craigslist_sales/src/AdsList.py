@@ -277,7 +277,7 @@ Asking for $400 for the pair.Contact me if you have any questions",
 },
 # Garmin Portable Vehicle GPS with Lifetime Maps (US)
 {
-"CATEGORY":"autopart", 
+"CATEGORY":"autoparts", 
 "TITLE":"Garmin Portable Vehicle GPS with Lifetime Maps (US)",
 "CONTENTS":"This is the best GPS in the market. This is a used product, but is in great condtion. \n \
 The GPS has all the common features and comes with lifetime maps. 5-inch screen, easy to use. \n\
@@ -287,7 +287,7 @@ I am asking for $150. Please let me know if you have any questions.",
 },
 # BOSS Audio 612UA In-Dash Single-Din USB/SD/MP3 Player Receiver
 {
-"CATEGORY":"autopart", 
+"CATEGORY":"autoparts", 
 "TITLE":"BOSS Audio 612UA In-Dash Single-Din USB/SD/MP3 Player Receiver",
 "CONTENTS":"My old car radio. Has all the features you need and I never had any problems with it. \n \
 These are the box specifications:  \n \
@@ -610,7 +610,7 @@ categoryDic = {
 "cellphone":"153", 
 "electronics":"96", 
 "car":"145", 
-"computers":"7", 
+"computer":"7", 
 "jewelry":"120",
 "autoparts":"122",
 }
