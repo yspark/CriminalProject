@@ -132,7 +132,7 @@ emailList = [
 "CRAIGSLIST_ACCOUNT":"damianbenson89@gmail.com",
 "CITY":"LA",
 "ID":"7",
-"PROXY":"planetlab2.utdallas.edu:8888",
+"PROXY":"planetlab1.cs.uml.edu:8888",
 "PHONE":"301-433-3157",
 "NAME":"male",
 "MEDIUM":"phone"
@@ -181,7 +181,7 @@ emailList = [
 "CITY":"LA",
 "ID":"7",
 "PROXY":"planetlab3.arizona-gigapop.net:8888",
-"PHONE":"(773)943-0364",
+"PHONE":"719-740-0679",
 "NAME":"none",
 "MEDIUM":"both"
 },
@@ -217,7 +217,6 @@ emailList = [
 "CITY":"LA",
 "ID":"7",
 "PROXY":"planetlab2.arizona-gigapop.net:8888",
-"PHONE":"301-503-4917",
 "NAME":"none",
 "MEDIUM":"email"
 },

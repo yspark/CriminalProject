@@ -407,9 +407,9 @@ def getRandomAdIndexList(targetCity, mysqlInstance):
                 if goodsAdsList[i]['TITLE'] in subject:
                     unavailableEmailIndexList.append(i)
                     
-                    #if goodsAdsList[i]['CATEGORY'] in category_list:
-                    #    category_list.remove(goodsAdsList[i]['CATEGORY'])
-                    #    #print '\tRemove', goodsAdsList[i]['CATEGORY']
+                    if goodsAdsList[i]['CATEGORY'] in category_list:
+                        category_list.remove(goodsAdsList[i]['CATEGORY'])
+                        #print '\tRemove', goodsAdsList[i]['CATEGORY']
         adIndexList = list(set(random.sample(range(len(goodsAdsList)), len(goodsAdsList))) - set(unavailableEmailIndexList))
     #endif
     
@@ -458,7 +458,7 @@ if __name__ == '__main__':
     cities = ['WashingtonDC', 'LA', 'Chicago']
     targetCity = cities[random.randint(0, len(cities)-1)]
     ####################################
-    targetCity = 'LA'
+    #targetCity = 'LA'
     ####################################
     print 'Randomly selected city:', targetCity
 
@@ -478,8 +478,8 @@ if __name__ == '__main__':
     emailIndex = emailIndexList[0]
 
     ####################################
-    targetCity = 'LA'
-    emailIndex = 10
+    #targetCity = 'LA'
+    #emailIndex = 10
     ####################################
 
     # build adIndexList
