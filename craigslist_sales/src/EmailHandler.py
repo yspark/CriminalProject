@@ -172,7 +172,8 @@ class EmailHandler:
 				email_message = email.message_from_string(data[0][1])
 
 				# Receiver information
-				self.emailInfo['To'] = email_message['To']
+				#self.emailInfo['To'] = email_message['To']
+				self.emailInfo['To'] = self.email_dic['EMAIL']
 				self.emailInfo['ReceiverName'], self.emailInfo['ReceiverEmail'] = email.utils.parseaddr(email_message['To'])
 
 				# Sender information

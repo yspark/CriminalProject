@@ -404,7 +404,7 @@ Contact me for any additional information. I am asking for $340",
 "CATEGORY":"computer", 
 "TITLE":"Apple MacBook - 12\" Display - Intel Core M - 8GB Memory - 256GB Flash Storage - Silver",
 "CONTENTS":"At just 2 pounds and 13.1mm thin, MacBook is our thinnest and lightest notebook and it's available in three gorgeous metal finishes. \n \
-With a stunning 12-inch Retina display, Apple-designed keyboard and all-new Force Touch trackpad, it features fifth-generation Intel® Core™ M processors, fast PCIe-based flash storage, and all-day battery life. \n \
+With a stunning 12-inch Retina display, Apple-designed keyboard and all-new Force Touch trackpad, it features fifth-generation Intel Core M processors, fast PCIe-based flash storage, and all-day battery life. \n \
 MacBook is designed for a wireless world and is the ideal notebook for customers looking for the complete Mac experience in our most portable notebook ever. \n \
 This is one of the best computers in the market. I am asking just $1500. Let me know of any questions you might have.",
 "PRICE":"1500",

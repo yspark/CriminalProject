@@ -239,7 +239,8 @@ class Craigslist:
         print '\twait %d seconds for confirmation email...' % waitTime
         time.sleep(waitTime)
 
-        while True:
+        #while True:
+        for i in range(12):        
             if self.confirmGmail():
                 break
             else:
@@ -355,8 +356,9 @@ class Craigslist:
             if flagOptional == False:
                 traceback.print_exc(file=sys.stdout)
                 sys.exit()
-        else:
-            inputElement.send_keys(inputText)
+            else:
+                checkCraigslistAccountAvailability
+                inputElement.send_keys(inputText)
             # end def clickRadioButtonByValue()
 
 
@@ -365,9 +367,6 @@ class Craigslist:
 
 
 def getRandomEmailIndexList(targetCity, mysqlInstance):
-    # targetEmailList = [email for email in emailList if email['CITY'] == targetCity and ('STATUS' not in email.keys() or email['STATUS'] != 'Blocked')]
-    #print len(targetEmailList), targetEmailList
-
     availableEmailIndexList = []
     allEmailIndexList = random.sample(range(len(emailList)), len(emailList))
     print allEmailIndexList
@@ -379,8 +378,7 @@ def getRandomEmailIndexList(targetCity, mysqlInstance):
             continue
 
         lastPostingTime = mysqlInstance.checkCraigslistAccountAvailability(emailList[emailIndex]["CRAIGSLIST_ACCOUNT"])
-
-        if (lastPostingTime) and (datetime.datetime.utcnow() < lastPostingTime + timedelta(hours=72)):
+        if (lastPostingTime) and (datetime.datetime.utcnow() < lastPostingTime + timedelta(hours=51)):
             #print 'remove %d: used within the last 48 hours' % emailIndex
             continue
         #endif
@@ -388,18 +386,13 @@ def getRandomEmailIndexList(targetCity, mysqlInstance):
         availableEmailIndexList.append(emailIndex)
     #end for
 
-    print availableEmailIndexList
-    print '%d Craigslist accounts are available' % len(availableEmailIndexList)
-
     if len(availableEmailIndexList) < 1:
         print 'halt'
         sys.exit()
     else:
         print "Available emailNum", len(availableEmailIndexList)
         return availableEmailIndexList
-        #end if
-
-
+    #end if
 # end def
 
 
@@ -415,10 +408,17 @@ def getRandomAdIndexList(targetCity, mysqlInstance):
                     unavailableEmailIndexList.append(i)
         adIndexList = list(set(random.sample(range(len(goodsAdsList)), len(goodsAdsList))) - set(unavailableEmailIndexList))
 
-
     random.shuffle(adIndexList)
-    return adIndexList
 
+    category_list = ['cellphone', 'computer', 'autopart', 'jewelry']
+    targetAdIndexList = []
+    for index in adIndexList:
+        if goodsAdsList[index]['CATEGORY'] in category_list:
+            targetAdIndexList.append(index)
+            category_list.remove(goodsAdsList[index]['CATEGORY'])
+            #print goodsAdsList[index]
+
+    return targetAdIndexList
 #end def
 
 
@@ -447,14 +447,9 @@ if __name__ == '__main__':
     #################################
     # Post goods ads
     #################################
-    print 'argv:%s\n' % sys.argv
-    if len(sys.argv) == 2:
-        targetCity = sys.argv[1]
-    else:
-        cities = ['WashingtonDC', 'LA', 'Chicago']
-        targetCity = cities[random.randint(0, len(cities)-1)]
-        print 'Randomly selected city:', targetCity
-    # end if
+    cities = ['WashingtonDC', 'LA', 'Chicago']
+    targetCity = cities[random.randint(0, len(cities)-1)]
+    print 'Randomly selected city:', targetCity
 
     # mysql
     mysqlInstance = ScamMysql.ScamMysql()
@@ -463,48 +458,39 @@ if __name__ == '__main__':
     # check if it is good time to post Craigslist ads
     checkAvailableHour(mysqlInstance)
 
-    # name generator
-    #personalInformation = PersonalInformation()
-
     # build emailIndexList
     if len(sys.argv) <= 2:
         emailIndexList = getRandomEmailIndexList(targetCity, mysqlInstance)
     else:
         emailIndexList = list(range(len(emailList)))
     #endif
+    emailIndex = emailIndexList[0]
 
     # build adIndexList
     adIndexList = getRandomAdIndexList(targetCity, mysqlInstance)
 
-    print emailIndexList
-    print adIndexList
+    # Gmail IMAP login
+    emailHandler = EmailHandler.EmailHandler(email_dic=emailList[emailIndex], mysql = mysqlInstance)
+    if not emailHandler.login(ImapOnly=True):
+        sys.exit()
 
 
-    for emailIndex, adIndex in zip(emailIndexList, adIndexList):
-        print emailIndex, adIndex
-
+    for adIndex in adIndexList:
         print '*********************************************'
         print '%d, EmailAccount: %s, CraigslistAccount:%s' \
                 % (emailIndex, emailList[emailIndex]['EMAIL'], emailList[emailIndex]['CRAIGSLIST_ACCOUNT'])
-
         print '    Ad %d, %s, %s' \
                 % (adIndex, goodsAdsList[adIndex]['TITLE'], goodsAdsList[adIndex]['CATEGORY'])
 
-
-        # Gmail IMAP login
-        emailHandler = EmailHandler.EmailHandler(email_dic=emailList[emailIndex], mysql = mysqlInstance)
-        if not emailHandler.login(ImapOnly=True):
-            sys.exit()
+        continue
 
         craigslist = Craigslist(goodsAdsList[adIndex], emailList[emailIndex], emailHandler)
-
-        if not _TEST_:
-            # Post Craigslist AD
-            craigslist.postGoodsCraigslist()
-            # Close webdriver
-            craigslist.done()
-            # Confirm email
-            craigslist.confirmEmail()
+        # Post Craigslist AD
+        craigslist.postGoodsCraigslist()
+        # Close webdriver
+        craigslist.done()
+        # Confirm email
+        craigslist.confirmEmail()
 
         # If confirmation is successful, insert into DB
         if craigslist.adURL != '':
@@ -520,7 +506,7 @@ if __name__ == '__main__':
         craigslist.done()
 
         # Wait random time
-        randTime = random.randint(45, 90)
+        randTime = random.randint(180, 900)
         print '\twaiting %d seconds...' % randTime
         time.sleep(randTime)
         #end

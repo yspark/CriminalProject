@@ -370,7 +370,7 @@ class ScamMysql:
 
   def getRecentAds(self, targetCity):
     query = ("SELECT Subject FROM CraigslistAds "
-             "WHERE PostingTime > (UTC_TIMESTAMP() - INTERVAL 56 HOUR) AND City = %s")
+             "WHERE PostingTime > (UTC_TIMESTAMP() - INTERVAL 51 HOUR) AND City = %s")
     parameter = [targetCity]
     self.cursor.execute(query, parameter)
     result = self.cursor.fetchall()
