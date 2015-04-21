@@ -93,7 +93,8 @@ class EmailHandler:
 
 		# Open inbox					
 		while True:
-			self.imapServer.select('INBOX')
+			#self.imapServer.select('INBOX')
+			self.imapServer.select('[Gmail]/All Mail')
 			status, data = self.imapServer.search(None, '(UNSEEN)')
 			emailIds = data[0].split()
 			if len(emailIds):
@@ -135,140 +136,139 @@ class EmailHandler:
 	#
 	#########################################################
 	def read_emails(self):
-		# Open inbox
-		self.imapServer.select('INBOX')
+		for mailbox in ['INBOX', '[Gmail]/Spam']:
+			# Open inbox
+			self.imapServer.select(mailbox)
 
-		# Count the unread emails
-		status, data = self.imapServer.status('INBOX', "(UNSEEN)")
-		unreadCount = int(data[0].split()[2].strip(').,]'))
+			# Count the unread emails
+			status, data = self.imapServer.status(mailbox, "(UNSEEN)")
+			unreadCount = int(data[0].split()[2].strip(').,]'))
 
-		if unreadCount == 0:
-			print 'No unread emails left'
-			return
+			if unreadCount == 0:
+				print 'No unread emails left'
+				continue
 
-		status, uids = self.imapServer.uid('search', None, "UNSEEN")
-		if status != 'OK':
-			self.logout()
-			sys.exit()
-		else:
-			uidList = uids[0].split()
-
-		# Handle each unread email
-		for uid in uidList:
-			self.emailInfo = {}
-
-			print '==================================================='
-			print 'IMAP:' + uid
-			self.emailInfo['UID'] = uid
-
-			# fetch the email body (RFC822) for the given ID
-			#if self.TEST_FLAG:
-			status, data = self.imapServer.uid('fetch', uid, '(BODY.PEEK[])')
-			#else:
-			#	status, data = self.imapServer.uid('fetch', uid, '(RFC822)')
-
-			email_message = email.message_from_string(data[0][1])
-
-			# Receiver information
-			self.emailInfo['To'] = email_message['To']
-			self.emailInfo['ReceiverName'], self.emailInfo['ReceiverEmail'] = email.utils.parseaddr(email_message['To'])
-
-			# Sender information
-			self.emailInfo['From'] = email_message['From']
-			self.emailInfo['SenderName'], self.emailInfo['SenderEmail'] = email.utils.parseaddr(email_message['From'])
-			# Reply-to information
-			replyToName, self.emailInfo['Reply-To'] = email.utils.parseaddr(email_message['Reply-To'])
-			# Actual mail sender
-			realSenderName, self.emailInfo['RealSenderEmail'] = email.utils.parseaddr(email_message['Sender'])
-
-			# Get the IP address of the sender
-			wholeSenderEmail = email_message['From']
-			if email_message['Sender']:
-				wholeSenderEmail += email_message['Sender']
-
-			if 'gmail.com' not in wholeSenderEmail and 'hotmail.com' not in wholeSenderEmail and 'outlook.com' not in wholeSenderEmail:
-				senderInfo = email_message.get_all('Received')[-1]
-				try:
-					self.emailInfo['SenderIP'] = re.findall(r'[0-9]+(?:\.[0-9]+){3}', senderInfo)[0]
-				except:
-					self.emailInfo['SenderIP'] = ''
+			status, uids = self.imapServer.uid('search', None, "UNSEEN")
+			if status != 'OK':
+				self.logout()
+				sys.exit()
 			else:
-				self.emailInfo['SenderIP'] = ''
+				uidList = uids[0].split()
 
+			# Handle each unread email
+			for uid in uidList:
+				self.emailInfo = {}
 
-			# Email details
-			self.emailInfo['Subject'] = email_message['Subject']
-			if self.emailInfo['Subject'] is None:
-				print 'null subject'
-				continue
+				print '==================================================='
+				print 'IMAP:' + uid
+				self.emailInfo['UID'] = uid
 
-			if '=?utf-8?' in self.emailInfo['Subject']:
-				self.emailInfo['Subject'], encoding = email.Header.decode_header(self.emailInfo['Subject'])[0]
-				print 'decode utf-8 subject: %s' % self.emailInfo['Subject']
+				# fetch the email body (RFC822) for the given ID
+				#if self.TEST_FLAG:
+				status, data = self.imapServer.uid('fetch', uid, '(BODY.PEEK[])')
+				#else:
+				#	status, data = self.imapServer.uid('fetch', uid, '(RFC822)')
 
-			timeUTC = parser.parse(email_message['Date']).utctimetuple()
-			self.emailInfo['Date'] = datetime.datetime(*timeUTC[:6]).strftime('%Y-%m-%d %H:%M:%S')
-			self.emailInfo['MessageID'] = email_message['Message-ID']
-			self.emailInfo['References'] = email_message['References']
+				email_message = email.message_from_string(data[0][1])
 
-			# Thread ID
-			result, data = self.imapServer.uid('fetch', uid, '(X-GM-THRID X-GM-MSGID)')
-			self.emailInfo['ThreadID'] = data[0].split()[2]
+				# Receiver information
+				self.emailInfo['To'] = email_message['To']
+				self.emailInfo['ReceiverName'], self.emailInfo['ReceiverEmail'] = email.utils.parseaddr(email_message['To'])
 
-			# Email payload
-			self.emailInfo['Payload'] = self.getFirstTextPayload(email_message)
-			self.emailInfo['CorePayload'] = self.removeQuotes(self.emailInfo['Payload'])
+				# Sender information
+				self.emailInfo['From'] = email_message['From']
+				self.emailInfo['SenderName'], self.emailInfo['SenderEmail'] = email.utils.parseaddr(email_message['From'])
+				# Reply-to information
+				replyToName, self.emailInfo['Reply-To'] = email.utils.parseaddr(email_message['Reply-To'])
+				# Actual mail sender
+				realSenderName, self.emailInfo['RealSenderEmail'] = email.utils.parseaddr(email_message['Sender'])
 
-			print '=========================='
-			print self.emailInfo['Subject']
-			print self.emailInfo['Payload']
-			print '=========================='
-			payload = self.emailInfo['Payload'].lower()
+				# Get the IP address of the sender
+				wholeSenderEmail = email_message['From']
+				if email_message['Sender']:
+					wholeSenderEmail += email_message['Sender']
 
-
-			# validation
-			if 'POST/EDIT/DELETE' in self.emailInfo['Subject']:
-				print 'INVALID: CRAIGSLIST EMAIL'
-				continue
-			elif 'google.com' in self.emailInfo['From']:
-				print 'INVALID: GOOGLE EMAIL'
-				self.imapServer.uid('fetch', uid, '(RFC822)')
-				continue
-
-			# classification
-			if 'paypal' in self.emailInfo['SenderEmail'].lower() \
-					or 'paypal' in self.emailInfo['SenderName'].lower() \
-					or 'pay pal' in self.emailInfo['SenderName'].lower() \
-					or 'payment' in self.emailInfo['Subject'].lower():
-				print 'paypal notification'
-				self.emailInfo['Type'] = 'paypal'
-				self.mysql.insertReceivedPaypalNoti(self.emailInfo)
-			else:
-				replyPayload = self.generateReply(self.emailInfo['CorePayload'])
-				if replyPayload == '':
-					self.emailInfo['Type'] = 'unknown'
-					print '--------------------------'
-					print 'Insert received unknown email into Mysql'
-					print '--------------------------'
-					self.mysql.insertUnknown(self.emailInfo)
+				if 'gmail.com' not in wholeSenderEmail and 'hotmail.com' not in wholeSenderEmail and 'outlook.com' not in wholeSenderEmail:
+					senderInfo = email_message.get_all('Received')[-1]
+					try:
+						self.emailInfo['SenderIP'] = re.findall(r'[0-9]+(?:\.[0-9]+){3}', senderInfo)[0]
+					except:
+						self.emailInfo['SenderIP'] = ''
 				else:
-					self.emailInfo['Type'] = 'conversation'
-					print '--------------------------'
-					print 'Insert received conversation into Mysql'
-					self.mysql.insertReceivedConversation(self.emailInfo)
-					print 'Send Reply'
-					self.sendReply(self.emailInfo, replyPayload)
-					print '--------------------------'
-			#endif
-
-			if self.TEST_FLAG:
-				return
-			else:
-				self.imapServer.uid('fetch', uid, '(RFC822)')
-			#endfor
-		#end def
+					self.emailInfo['SenderIP'] = ''
 
 
+				# Email details
+				self.emailInfo['Subject'] = email_message['Subject']
+				if self.emailInfo['Subject'] is None:
+					print 'null subject'
+					continue
+
+				if '=?utf-8?' in self.emailInfo['Subject']:
+					self.emailInfo['Subject'], encoding = email.Header.decode_header(self.emailInfo['Subject'])[0]
+					print 'decode utf-8 subject: %s' % self.emailInfo['Subject']
+
+				timeUTC = parser.parse(email_message['Date']).utctimetuple()
+				self.emailInfo['Date'] = datetime.datetime(*timeUTC[:6]).strftime('%Y-%m-%d %H:%M:%S')
+				self.emailInfo['MessageID'] = email_message['Message-ID']
+				self.emailInfo['References'] = email_message['References']
+
+				# Thread ID
+				result, data = self.imapServer.uid('fetch', uid, '(X-GM-THRID X-GM-MSGID)')
+				self.emailInfo['ThreadID'] = data[0].split()[2]
+
+				# Email payload
+				self.emailInfo['Payload'] = self.getFirstTextPayload(email_message)
+				self.emailInfo['CorePayload'] = self.removeQuotes(self.emailInfo['Payload'])
+
+				print '=========================='
+				print self.emailInfo['Subject']
+				print self.emailInfo['Payload']
+				print '=========================='
+				payload = self.emailInfo['Payload'].lower()
+
+
+				# validation
+				if 'POST/EDIT/DELETE' in self.emailInfo['Subject']:
+					print 'INVALID: CRAIGSLIST EMAIL'
+					continue
+				elif 'google.com' in self.emailInfo['From']:
+					print 'INVALID: GOOGLE EMAIL'
+					self.imapServer.uid('fetch', uid, '(RFC822)')
+					continue
+
+				# classification
+				if 'paypal' in self.emailInfo['SenderEmail'].lower() \
+						or 'paypal' in self.emailInfo['SenderName'].lower() \
+						or 'pay pal' in self.emailInfo['SenderName'].lower() \
+						or 'payment' in self.emailInfo['Subject'].lower():
+					print 'paypal notification'
+					self.emailInfo['Type'] = 'paypal'
+					self.mysql.insertReceivedPaypalNoti(self.emailInfo)
+				else:
+					replyPayload = self.generateReply(self.emailInfo['CorePayload'])
+					if replyPayload == '':
+						self.emailInfo['Type'] = 'unknown'
+						print '--------------------------'
+						print 'Insert received unknown email into Mysql'
+						print '--------------------------'
+						self.mysql.insertUnknown(self.emailInfo)
+					else:
+						self.emailInfo['Type'] = 'conversation'
+						print '--------------------------'
+						print 'Insert received conversation into Mysql'
+						self.mysql.insertReceivedConversation(self.emailInfo)
+						print 'Send Reply'
+						self.sendReply(self.emailInfo, replyPayload)
+						print '--------------------------'
+				#endif
+
+				if self.TEST_FLAG:
+					return
+				else:
+					self.imapServer.uid('fetch', uid, '(RFC822)')
+				#endfor
+			#end def
 
 	#########################################################
 	#
@@ -362,7 +362,7 @@ class EmailHandler:
 
 		# 2nd reply, paypal:
 		if "paypal" in quoteText:
-			replyText = replyText + "Sounds great. My paypal account is %s.\nPlease let me know when the payment is done!!\nThanks!" % self.myEmailDic['EMAIL']
+			replyText = replyText + "Sounds great. My paypal account is %s.\nPlease let me know when the payment is done!!\nThanks!" % self.email_dic['EMAIL']
 			self.emailInfo['Subtype'] = 'sent_2_paypal'
 
 		# 2nd reply, check or money order: ask if paypal is possible
@@ -958,10 +958,9 @@ class EmailHandler:
 
 
 
-		#########################################################
-		#
-		# Operation mode 2 :
-
+	#########################################################
+	#
+	# Operation mode 2 :
 	#	Send out third victim responses
 	#
 	#########################################################		
@@ -1112,6 +1111,11 @@ class EmailHandler:
 
 
 if __name__ == "__main__":
+	if len(sys.argv) == 2:
+		start_index = int(sys.argv[1])
+	else:
+		start_index = 0
+
 	TEST_FLAG = False
 	if TEST_FLAG:
 		test_email_dic = {
@@ -1125,7 +1129,7 @@ if __name__ == "__main__":
 		sys.exit()
 
 	count = 0
-	for emailDic in emailList:
+	for emailDic in emailList[start_index:]:
 		print '==============================================='
 		print count, emailDic['EMAIL'], emailDic['CITY']
 		print '==============================================='

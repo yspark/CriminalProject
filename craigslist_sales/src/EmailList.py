@@ -34,7 +34,7 @@ emailList = [
 "CRAIGSLIST_ACCOUNT":"rolloedward78@gmail.com",
 "CITY":"WashingtonDC",
 "ID":"10",
-"PROXY":"planetlab1.ustc.edu.cn:8888",
+"PROXY":"planet-lab1.cs.ucr.edu:8888",
 "PHONE":"240-618-7506",
 "NAME":"none",
 "MEDIUM":"phone"
@@ -222,7 +222,6 @@ emailList = [
 "MEDIUM":"email"
 },
 
-
 # Chicago 1
 {
 "EMAIL":"osmondjaycob88@gmail.com",
@@ -230,8 +229,8 @@ emailList = [
 "CRAIGSLIST_ACCOUNT":"osmondjaycob88@gmail.com",
 "CITY":"Chicago",
 "ID":"11",
-"PROXY":":8888",
-"PHONE":"(213)284-0206",
+"PROXY":"kc-sce-plab2.umkc.edu:8888",
+"PHONE":"(213) 284-0206",
 "NAME":"female",
 "MEDIUM":"phone"
 },
@@ -242,8 +241,8 @@ emailList = [
 "CRAIGSLIST_ACCOUNT":"stefanicistrone89@gmail.com",
 "CITY":"Chicago",
 "ID":"11",
-"PROXY":":8888",
-"PHONE":"(786)925-8972",
+"PROXY":"planetlab-2.cse.ohio-state.edu:8888",
+"PHONE":"(786) 925-8972",
 "NAME":"male",
 "MEDIUM":"phone"
 },
@@ -254,8 +253,8 @@ emailList = [
 "CRAIGSLIST_ACCOUNT":"linnieroslyn89@gmail.com",
 "CITY":"Chicago",
 "ID":"11",
-"PROXY":":8888",
-"PHONE":"",
+"PROXY":"planetlab2.csee.usf.edu:8888",
+"PHONE":"773-814-3893",
 "NAME":"none",
 "MEDIUM":"phone"
 },
@@ -266,8 +265,8 @@ emailList = [
 "CRAIGSLIST_ACCOUNT":"koreyaden90@gmail.com",
 "CITY":"Chicago",
 "ID":"11",
-"PROXY":":8888",
-"PHONE":"",
+"PROXY":"planetlab2.cs.uml.edu:8888",
+"PHONE":"213-292-8595",
 "NAME":"female",
 "MEDIUM":"both"
 },
@@ -278,8 +277,8 @@ emailList = [
 "CRAIGSLIST_ACCOUNT":"kristeenmikki86@gmail.com",
 "CITY":"Chicago",
 "ID":"11",
-"PROXY":":8888",
-"PHONE":"",
+"PROXY":"planetlab2.acis.ufl.edu:8888",
+"PHONE":"213-292-8665",
 "NAME":"male",
 "MEDIUM":"both"
 },
@@ -290,8 +289,8 @@ emailList = [
 "CRAIGSLIST_ACCOUNT":"zandracybill90@gmail.com",
 "CITY":"Chicago",
 "ID":"11",
-"PROXY":":8888",
-"PHONE":"",
+"PROXY":"planetlabtwo.ccs.neu.edu:8888",
+"PHONE":"872-305-0210",
 "NAME":"none",
 "MEDIUM":"both"
 },
@@ -302,8 +301,8 @@ emailList = [
 "CRAIGSLIST_ACCOUNT":"albertburg91@gmail.com",
 "CITY":"Chicago",
 "ID":"11",
-"PROXY":":8888",
-"PHONE":"",
+"PROXY":"pl-node-1.csl.sri.com:8888",
+"PHONE":"773-819-8250",
 "NAME":"female",
 "MEDIUM":"email"
 },
@@ -314,24 +313,32 @@ emailList = [
 "CRAIGSLIST_ACCOUNT":"jodyhaven92@gmail.com",
 "CITY":"Chicago",
 "ID":"11",
-"PROXY":":8888",
-"PHONE":"",
+"PROXY":"pl2.cs.montana.edu:8888",
+"PHONE":"312-519-7368",
 "NAME":"male",
 "MEDIUM":"email"
 },
-# Chicago 5
+# Chicago 9
 {
 "EMAIL":"charltonsinclair92@gmail.com",
 "PASSWD":"cybersafe",
 "CRAIGSLIST_ACCOUNT":"charltonsinclair92@gmail.com",
 "CITY":"Chicago",
 "ID":"11",
-"PROXY":":8888",
-"PHONE":"",
+"PROXY":"ricepl-1.cs.rice.edu:8888",
+"PHONE":"224-523-4388",
 "NAME":"none",
 "MEDIUM":"email"
 },
 ]
+
+'''
+
+
+
+
+
+'''
 
 
 """

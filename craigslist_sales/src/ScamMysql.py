@@ -56,6 +56,7 @@ class ScamMysql:
                           RealScammerEmail VARCHAR(60), \
                           ScammerName VARCHAR(30), \
                           ScammerIP VARCHAR(20), \
+                          Subject VARCHAR(100), \
                           Type VARCHAR(20), \
                           Subtype VARCHAR(20), \
                           TimeStamp DATETIME, \
@@ -74,8 +75,12 @@ class ScamMysql:
   def disconnect(self):
     os.system("kill $(pgrep -f 'ssh -f')")
     #self.sshTunnel.kill()
-  
-            
+
+
+
+  #####################################################################
+	# Email conversation
+	#####################################################################
   def insertCraigslistAd(self, craigslistAdDic):
 
     query = ( "INSERT INTO CraigslistAds"
@@ -113,7 +118,12 @@ class ScamMysql:
       self.cursor.execute(query, parameter)
       self.mysql.commit()
   #enddef
-                          
+
+
+
+	#####################################################################
+	# Email conversation
+	#####################################################################
   def insertReceivedConversation(self, emailDic):
       query = ("INSERT INTO Emails"
                "(OurEmail,"
@@ -122,6 +132,7 @@ class ScamMysql:
                "RealScammerEmail,"
                "ScammerName,"
                "ScammerIP,"
+							 "Subject,"
                "Type,"
                "Subtype,"
                "TimeStamp,"
@@ -132,7 +143,7 @@ class ScamMysql:
                "VALUES"
                "(%s, %s, %s, %s, %s, "
                "%s, %s, %s, %s, %s,"
-               "%s, %s, %s)" )
+               "%s, %s, %s, %s)" )
                
       parameter = (emailDic['ReceiverEmail'],\
                    emailDic['SenderEmail'],\
@@ -140,6 +151,7 @@ class ScamMysql:
                    emailDic['RealSenderEmail'],\
                    emailDic['SenderName'],\
                    emailDic['SenderIP'],\
+									 emailDic['Subject'],\
                    emailDic['Type'],\
                    'received',\
                    emailDic['Date'],\
@@ -163,6 +175,7 @@ class ScamMysql:
                "RealScammerEmail,"
                "ScammerName,"
                "ScammerIP,"
+							 "Subject,"
                "Type,"
                "Subtype,"         
                "TimeStamp,"
@@ -172,7 +185,7 @@ class ScamMysql:
                "VALUES "
                "(%s, %s, %s, %s, %s,"
                "%s, %s, %s, %s, %s,"
-               "%s, %s)" )
+               "%s, %s, %s)" )
                
                
       parameter = (receivedEmailDic['ReceiverEmail'],\
@@ -181,6 +194,7 @@ class ScamMysql:
                    receivedEmailDic['RealSenderEmail'],\
                    receivedEmailDic['SenderName'],\
                    receivedEmailDic['SenderIP'],\
+									 receivedEmailDic['Subject'],\
                    receivedEmailDic['Type'], \
                    receivedEmailDic['Subtype'], \
                    datetime.datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S'),\
@@ -210,12 +224,11 @@ class ScamMysql:
                "Payload,"
                "WholePayload, "
                "MessageID, " 
-               "ThreadID, "
-               "Shipping) "                 
+               "ThreadID) "
                "VALUES"
                "(%s, %s, %s, %s, %s, " 
                "%s, %s, %s, %s, %s, "
-               "%s, %s, %s)")
+               "%s, %s)")
                
       parameter = (emailDic['ReceiverEmail'],\
                    emailDic['SenderEmail'],\
@@ -228,9 +241,8 @@ class ScamMysql:
                    emailDic['CorePayload'],\
                    emailDic['Payload'], \
                    emailDic['MessageID'], \
-                   emailDic['ThreadID'], \
-                   emailDic['Shipping'])        
-      
+                   emailDic['ThreadID'])
+
       #print query
       #print parameter
       
@@ -246,6 +258,7 @@ class ScamMysql:
              "ScammerReplyTo," 
              "RealScammerEmail,"
              "ScammerIP,"
+							"Subject,"
              "Type,"
              "TimeStamp,"
              "Payload,"
@@ -255,13 +268,14 @@ class ScamMysql:
              "VALUES"
              "(%s, %s, %s, %s, %s, " 
              "%s, %s, %s, %s, %s, "
-             "%s)")
+             "%s, %s)")
              
     parameter = (emailDic['ReceiverEmail'],\
                  emailDic['SenderEmail'],\
                  emailDic['Reply-To'],\
                  emailDic['RealSenderEmail'],\
                  emailDic['SenderIP'],\
+								 emailDic['Subject'],\
                  emailDic['Type'],\
                  emailDic['Date'],\
                  emailDic['CorePayload'],\
