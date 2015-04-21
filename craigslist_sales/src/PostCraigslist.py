@@ -401,15 +401,16 @@ def getRandomAdIndexList(targetCity, mysqlInstance):
 
     unavailableEmailIndexList = []
     unavailableAdTitleList = mysqlInstance.getRecentAds(targetCity)
+
     if unavailableAdTitleList:
         for i in range(len(goodsAdsList)):
             for subject in unavailableAdTitleList:
                 if goodsAdsList[i]['TITLE'] in subject:
                     unavailableEmailIndexList.append(i)
                     
-                    if goodsAdsList[i]['CATEGORY'] in category_list:
-                        category_list.remove(goodsAdsList[i]['CATEGORY'])
-                        #print '\tRemove', goodsAdsList[i]['CATEGORY']
+                    #if goodsAdsList[i]['CATEGORY'] in category_list:
+                    #    category_list.remove(goodsAdsList[i]['CATEGORY'])
+                    #    #print '\tRemove', goodsAdsList[i]['CATEGORY']
         adIndexList = list(set(random.sample(range(len(goodsAdsList)), len(goodsAdsList))) - set(unavailableEmailIndexList))
     #endif
     
