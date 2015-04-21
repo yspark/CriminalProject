@@ -451,6 +451,7 @@ def checkAvailableHour(mysqlInstance):
 
 
 if __name__ == '__main__':
+    os.chdir('/Volumes/Data/yspark/Research/Criminal/craigslist_sales/src')
     _TEST_ = False
 
     #################################
@@ -521,18 +522,17 @@ if __name__ == '__main__':
         craigslist.done()
 
         # Wait random time
-        randTime = random.randint(30, 90)
+        randTime = random.randint(60, 120)
         print '\twaiting %d seconds...' % randTime
         time.sleep(randTime)
         #end
 
-        # email hander logout
-        emailHandler.logout()
         # use only one email
         if _TEST_:
             break
-
     #end for
 
+    # email hander logout
+    emailHandler.logout()
     # mysql
     mysqlInstance.disconnect()
