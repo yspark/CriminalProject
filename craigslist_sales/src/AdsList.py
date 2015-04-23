@@ -106,13 +106,13 @@ The price is $670, firm.\n",
 # Samsung Galaxy Note 4 N910H 32GB Unlocked GSM Octa-Core Smartphone - Black
 {
 "CATEGORY":"cellphone",
-"TITLE":"HTC 8X Unlocked Smartphone C620E, 16 GB, Blue",
+"TITLE":"Samsung Galaxy Note 4 N910H 32GB Unlocked GSM Octa-Core Smartphone - Black",
 "CONTENTS":"2G: GSM 850 / 900 / 1900 / 1900, 3G: HSDPA 850 / 900 / 1900 / 2100 (not LTE)\n\
 5.7\" Super AMOLED Capacitive Multi-Touchscreen w/ Protective Corning Gorilla Glass 3\n\
 Android v4.4.4 (KitKat), Octa-Core Processor (1.9GHz Quad Core + 1.3GHz Quad Core), Chipset: Qualcomm Snapdragon 85, Adreno 420 Graphics\n\
 I bought this phone about 7 months ago. It has almost no scratch.\n\
-The price is $670, firm.\n",
-"PRICE":"670",
+The price is $600, firm.\n",
+"PRICE":"600",
 "PICTURE":"note4.jpg"
 },
 # Samsung Galaxy S3 Mini GT-i8190 8GB Android Smartphone - Black
