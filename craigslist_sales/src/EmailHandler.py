@@ -1112,6 +1112,10 @@ class EmailHandler:
 
 
 if __name__ == "__main__":
+    print '##############################################################'
+    print time.strftime("%c")
+    print '##############################################################'
+	
 	if len(sys.argv) == 2:
 		start_index = int(sys.argv[1])
 	else:
