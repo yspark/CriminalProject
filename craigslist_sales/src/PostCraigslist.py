@@ -454,7 +454,6 @@ if __name__ == '__main__':
     os.chdir('/Volumes/Data/yspark/Research/Criminal/craigslist_sales/src')
     _TEST_ = False
 
-
     print '##############################################################'
     print time.strftime("%c")
     print '##############################################################'
