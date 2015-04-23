@@ -325,7 +325,7 @@ emailList = [
 "CRAIGSLIST_ACCOUNT":"charltonsinclair92@gmail.com",
 "CITY":"Chicago",
 "ID":"11",
-"PROXY":"ricepl-1.cs.rice.edu:8888",
+"PROXY":"planetlab-01.bu.edu:8888",
 "PHONE":"224-523-4388",
 "NAME":"none",
 "MEDIUM":"email"
