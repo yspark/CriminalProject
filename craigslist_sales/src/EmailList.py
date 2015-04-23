@@ -22,7 +22,7 @@ emailList = [
 "CRAIGSLIST_ACCOUNT":"jacobpetter75@gmail.com",
 "CITY":"WashingtonDC",
 "ID":"10",
-"PROXY":"planetlab1.citadel.edu:8888",
+"PROXY":"planetlab1.ustc.edu.cn:8888",
 "PHONE":"240-618-7502",
 "NAME":"male",
 "MEDIUM":"phone"
