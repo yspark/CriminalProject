@@ -497,7 +497,7 @@ NVIDIA Tegra K1 Processor \n\
 The best working computer I had. I can ship it today. I am asking $350 for it, and I wont go any less.",
 "PRICE":"350",
 "PICTURE":"HP Chromebook.jpg"
-}
+},
 
 
 
