@@ -22,7 +22,7 @@ emailList = [
 "CRAIGSLIST_ACCOUNT":"shannondevyn966@gmail.com",
 "CITY":"WashingtonDC",
 "ID":"10",
-"PROXY":"vn4.cse.wustl.edu:8888",
+"PROXY":"planetlab1.cnds.jhu.edu:8888",
 "PHONE":"240-618-7502",
 "NAME":"male",
 "MEDIUM":"phone"
@@ -325,7 +325,7 @@ emailList = [
 "CRAIGSLIST_ACCOUNT":"carisbailey968@gmail.com",
 "CITY":"Chicago",
 "ID":"11",
-"PROXY":"planetlab1.cnis.nyit.edu:8888",
+"PROXY":"planetlab4.csee.usf.edu:8888",
 "PHONE":"224-523-4388",
 "NAME":"none",
 "MEDIUM":"email"
