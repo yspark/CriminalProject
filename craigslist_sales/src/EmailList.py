@@ -95,7 +95,7 @@ emailList = [
 "PASSWD":"cybersafe",
 "CITY":"WashingtonDC",
 "ID":"10",
-"PROXY":"planetlab3.ucsd.edu:8888",
+"PROXY":"planetlab2.ucsd.edu:8888",
 "PHONE":"240-618-7522",
 "NAME":"female",
 "MEDIUM":"email"

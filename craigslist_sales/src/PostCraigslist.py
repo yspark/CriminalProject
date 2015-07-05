@@ -128,6 +128,20 @@ class Craigslist:
             self.clickElement("input", "id", "contact_text_ok")
             self.sendKeyToElement("input", "id", "contact_phone", self.phone)
 
+        if self.category == 'cellphone':
+            if "iphone" in self.title.lower():
+                os_select = self.driver.find_element_by_id('mobile_os')
+                for option in os_select.find_elements_by_tag_name('option'):
+                    if "ios" in option.text.lower():
+                        option.click()
+                        break
+            else:
+                os_select = self.driver.find_element_by_id('mobile_os')
+                for option in os_select.find_elements_by_tag_name('option'):
+                    if "android" in option.text.lower():
+                        option.click()
+                        break
+
         self.clickElement("button", "value", "Continue")
         print '\t\t5'
 
@@ -451,8 +465,9 @@ def checkAvailableHour(mysqlInstance):
 
 
 if __name__ == '__main__':
-    os.chdir('/home/yspark/Research/CriminalProject/craigslist_sales/src/')
-    _TEST_ = False
+    #os.chdir('/home/yspark/Research/CriminalProject/craigslist_sales/src/')
+    os.chdir('/Volumes/Data/yspark/Research/Criminal/craigslist_sales/src')
+    _TEST_ = True
 
     print '##############################################################'
     print time.strftime("%c")
