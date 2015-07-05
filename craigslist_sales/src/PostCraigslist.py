@@ -491,10 +491,11 @@ if __name__ == '__main__':
     checkAvailableHour(mysqlInstance)
 
     # build emailIndexList
-    if len(sys.argv) <= 2:
+    if len(sys.argv) < 2:
         emailIndexList = getRandomEmailIndexList(targetCity, mysqlInstance)
     else:
-        emailIndexList = list(range(len(emailList)))
+        emailList = emailList[int(sys.argv[1]):int(sys.argv[1])+1]
+        emailIndexList = getRandomEmailIndexList(targetCity, mysqlInstance)
     #endif
     emailIndex = emailIndexList[0]
 
