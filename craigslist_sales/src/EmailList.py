@@ -27,6 +27,7 @@ emailList = [
 "NAME":"male",
 "MEDIUM":"phone"
 },
+
 # WashingtonDC 3
 { 
 "EMAIL":"ianlee9611@gmail.com",
