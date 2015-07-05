@@ -106,7 +106,7 @@ emailList = [
 "PASSWD":"cybersafe",
 "CITY":"WashingtonDC",
 "ID":"10",
-"PROXY":"planetlab1.cnds.jhu.edu:8888",
+"PROXY":"planetlab2.unl.edu:8888",
 "PHONE":"240-618-7525",
 "NAME":"none",
 "MEDIUM":"email"
@@ -156,7 +156,7 @@ emailList = [
 "CRAIGSLIST_ACCOUNT":"elroyosvald986@gmail.com",
 "CITY":"LA",
 "ID":"7",
-"PROXY":"planetlab1.uta.edu:8888",
+"PROXY":"planetlab1.uta.edu:8889",
 "PHONE":"872-305-1810",
 "NAME":"female",
 "MEDIUM":"both"
@@ -180,7 +180,7 @@ emailList = [
 "CRAIGSLIST_ACCOUNT":"arlinelayla994@gmail.com",
 "CITY":"LA",
 "ID":"7",
-"PROXY":"planetlab1.cs.uoregon.edu:8888",
+"PROXY":"planetlab1.cs.uoregon.edu:8889",
 "PHONE":"719-740-0679",
 "NAME":"none",
 "MEDIUM":"both"
@@ -192,7 +192,7 @@ emailList = [
 "CRAIGSLIST_ACCOUNT":"elfledarose974@gmail.com",
 "CITY":"LA",
 "ID":"7",
-"PROXY":"planetlab2.ucsd.edu:8888",
+"PROXY":"planet2.cc.gt.atl.ga.us:8888",
 "PHONE":"(786)925-8463",
 "NAME":"female",
 "MEDIUM":"email"
@@ -325,13 +325,12 @@ emailList = [
 "CRAIGSLIST_ACCOUNT":"carisbailey968@gmail.com",
 "CITY":"Chicago",
 "ID":"11",
-"PROXY":"planetlab4.csee.usf.edu:8888",
+"PROXY":"planetlab1.cnis.nyit.edu:8888",
 "PHONE":"224-523-4388",
 "NAME":"none",
 "MEDIUM":"email"
 },
 ]
-
 
 
 """
@@ -425,3 +424,7 @@ emailList = [
 """
 
 """
+
+
+
+#emailList = emailList[8:9]
